@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pendaftaran Webinar – Filaz Nastar</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-warning shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">FILAZ NASTAR</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Webinar Promosi Produk Filaz Nastar</h1>
+  </header>
+
+  <main class="container py-4">
+    <div class="form-kontak">
+      <h2>Pendaftaran Webinar</h2>
+      <p>Silakan isi form berikut untuk mendaftar webinar Filaz Nastar.</p>
+
+      <form id="webinarForm" novalidate>
+        <label for="nama">Nama Lengkap:</label>
+        <input type="text" id="nama" name="nama" placeholder="Masukkan nama anda">
+        <div class="error-msg" id="err-nama"></div>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Masukkan email anda">
+        <div class="error-msg" id="err-email"></div>
+
+        <label for="hp">Nomor HP:</label>
+        <input type="text" id="hp" name="hp" placeholder="Masukkan nomor HP anda">
+        <div class="error-msg" id="err-hp"></div>
+
+        <label for="topik">Pilihan Topik Webinar:</label>
+        <select id="topik" name="topik">
+          <option value="">-- pilih topik --</option>
+          <option value="branding">Branding UMKM Filaz Nastar</option>
+          <option value="marketing">Cara Promosi Produk Online</option>
+          <option value="produksi">Optimasi Produksi & Packaging</option>
+        </select>
+        <div class="error-msg" id="err-topik"></div>
+
+        <div class="persetujuan">
+          <input type="checkbox" id="setuju">
+          <label for="setuju">Saya menyetujui syarat & ketentuan</label>
+        </div>
+        <div class="error-msg" id="err-setuju"></div>
+
+        <button type="submit">Daftar Sekarang</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="webinar.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

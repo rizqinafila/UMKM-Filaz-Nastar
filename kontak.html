@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - FILAZ NASTAR</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-warning shadow-sm sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">FILAZ NASTAR</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang Kami</a></li>
+                <li class="nav-item"><a class="nav-link" href="produk.html">Produk</a></li>
+                <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+                <li class="nav-item"><a class="nav-link active" href="kontak.html">Kontak</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header>
+    <h1>Hubungi Filaz Nastar</h1>
+</header>
+
+<main class="container py-4">
+    <section class="form-kontak">
+        <h2>Form Kontak Pelanggan</h2>
+        <p>Silakan isi form berikut untuk menghubungi kami.</p>
+
+        <form id="formKontak" onsubmit="return kirimPesan()">
+
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" class="form-control" placeholder="Masukkan nama anda" required>
+
+            <label for="email" class="mt-2">Email:</label>
+            <input type="email" id="email" class="form-control" placeholder="Masukkan email anda" required>
+
+            <label for="nomor" class="mt-2">Nomor HP:</label>
+            <input type="tel" id="nomor" class="form-control" placeholder="Masukkan nomor HP anda" required>
+
+            <label for="pesan" class="mt-2">Pesan:</label>
+            <textarea id="pesan" rows="4" class="form-control" placeholder="Tulis pesan anda..." required></textarea>
+
+            <div class="btn-group mt-3">
+                <button type="submit" class="btn btn-success">Kirim</button>
+                <button type="button" class="btn btn-secondary" onclick="clearForm()">Clear Data</button>
+            </div>
+        </form>
+
+        <p id="feedback" class="mt-3 fw-bold"></p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 FILAZ NASTAR. Semua hak dilindungi.</p>
+</footer>
+
+<script>
+function kirimPesan(){
+    const nama = document.getElementById("nama").value.trim();
+    const nomor = document.getElementById("nomor").value.trim();
+    const feedback = document.getElementById("feedback");
+
+    if (!/^[0-9]+$/.test(nomor)) {
+        feedback.textContent = "Nomor HP harus berupa angka!";
+        feedback.style.color = "red";
+        return false;
+    }
+
+    alert("Pesan berhasil dikirim. Terima kasih, " + nama + "!");
+    document.getElementById("formKontak").reset();
+    feedback.textContent = "";
+    return false;
+}
+
+function clearForm(){
+    document.getElementById("formKontak").reset();
+    document.getElementById("feedback").textContent = "";
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

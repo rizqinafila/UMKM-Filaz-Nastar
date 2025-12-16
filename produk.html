@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produk - FILAZ NASTAR</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-warning shadow-sm sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">FILAZ NASTAR</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="tentang.html">Tentang Kami</a></li>
+          <li class="nav-item"><a class="nav-link active" href="produk.html">Produk</a></li>
+          <li class="nav-item"><a class="nav-link" href="galeri.html">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link" href="kontak.html">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Produk Filaz Nastar</h1>
+    <p>Nikmati beragam varian nastar premium kami dengan cita rasa khas dan kualitas terbaik.</p>
+  </header>
+
+  <main class="produk">
+    <section>
+      <h2>Produk Unggulan Filaz Nastar</h2>
+      <p>Berikut adalah daftar produk nastar premium kami:</p>
+
+      <div class="tabel-produk">
+        <table>
+          <thead>
+            <tr>
+              <th>Produk</th>
+              <th>Ukuran</th>
+              <th>Harga</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Nastar Keju Premium</td>
+              <td>500g</td>
+              <td>Rp 85.000</td>
+            </tr>
+            <tr>
+              <td>Nastar Original</td>
+              <td>500g</td>
+              <td>Rp 75.000</td>
+            </tr>
+            <tr>
+              <td>Nastar Coklat</td>
+              <td>500g</td>
+              <td>Rp 90.000</td>
+            </tr>
+            <tr class="info">
+              <td colspan="3">Semua harga sudah termasuk PPN</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <h2>Produk Filaz Nastar</h2>
+    <section class="gambar-produk">
+      <div class="produk-gallery">
+        <img src="gambar/original.jpg" alt="Nastar Original">
+        <img src="gambar/keju.jpg" alt="Nastar Keju Premium">
+        <img src="gambar/coklat.jpg" alt="Nastar Coklat">
+      </div>
+    </section>
+
+    <section class="media-produk">
+      <h3>Dengarkan Cerita Kami</h3>
+      <audio controls>
+        <source src="audio/produk.mpeg" type="audio/mpeg">
+        Browser Anda tidak mendukung audio.
+      </audio>
+
+      <h3>Video Nastar Kami</h3>
+      <video controls>
+        <source src="video/produk.mp4" type="video/mp4">
+        Browser Anda tidak mendukung video.
+      </video>
+    </section>
+
+    <section class="kategori-usia">
+      <h3>Cek Kategori Pelanggan</h3>
+      <p>Masukkan usia anda untuk mengetahui kategori pelanggan:</p>
+      <form onsubmit="cekKategori(); return false;">
+        <input type="number" id="usia" placeholder="Masukkan usia anda" required>
+        <button type="submit">Cek</button>
+      </form>
+
+      <!-- FIX: elemen hasilUsia sebelumnya tidak ada -->
+      <p id="hasilUsia"></p>
+
+      <script>
+        function cekKategori(){
+          const usia = parseInt(document.getElementById("usia").value, 10);
+          let hasil = "";
+
+          if (!usia || usia <= 0){
+            hasil = "Usia tidak valid!";
+          } else if (usia < 13){
+            hasil = "Anak-anak";
+          } else if (usia <= 17){
+            hasil = "Remaja";
+          } else if (usia <= 60){
+            hasil = "Dewasa";
+          } else {
+            hasil = "Lansia";
+          }
+          document.getElementById("hasilUsia").textContent = "Kategori: " + hasil;
+        }
+      </script>
+    </section>
+
+    <section class="ulasan testimoni">
+      <h3>Ulasan Pelanggan</h3>
+      <ul id="daftarUlasan"></ul>
+
+      <script>
+        const ulasan=[
+          "Rasanya enak banget, lumer di mulut!",
+          "Kemasan rapih dan pengiriman cepat.",
+          "Sudah langganan setiap lebaran",
+          "Manisnya pas! nggak bikin enek di perut.",
+          "Kue nastar terenak yang pernah saya coba!"
+        ];
+
+        ulasan.forEach(function(pesan){
+          const li = document.createElement("li");
+          li.textContent = pesan;
+          document.getElementById("daftarUlasan").appendChild(li);
+        });
+      </script>
+    </section>
+
+    <section class="form-pemesanan">
+      <h3>Form Pemesanan Nastar</h3>
+      <form id="formPemesanan" onsubmit="return hitungTotal()">
+        <label for="produk">Pilih Produk:</label>
+        <select id="produk" required>
+          <option value="">== Pilih Produk ===</option>
+          <option value="85000">Nastar Keju Premium - Rp 85.000</option>
+          <option value="75000">Nastar Original - Rp 75.000</option>
+          <option value="90000">Nastar Coklat - Rp 90.000</option>
+        </select>
+
+        <label for="jumlah">Jumlah Toples:</label>
+        <input type="number" id="jumlah" placeholder="Masukkan jumlah" min="1" required>
+
+        <button type="submit">Pesan Sekarang</button>
+      </form>
+      <p id="hasilTotal"></p>
+
+      <script>
+        function hitungTotal(){
+          const produkSelect = document.getElementById("produk");
+          const jumlahInput = document.getElementById("jumlah");
+          const output = document.getElementById("hasilTotal");
+
+          const harga = parseInt(produkSelect.value, 10);
+          const jumlah = parseInt(jumlahInput.value, 10);
+
+          if (!harga || !jumlah){
+            alert("Pilih produk dan isi jumlah terlebih dahulu!");
+            return false;
+          }
+          if (jumlah <= 0){
+            alert("Jumlah harus lebih dari 0!");
+            return false;
+          }
+
+          const total = harga * jumlah;
+
+          alert(
+            "Pesanan berhasil!\n\n" +
+            "Jumlah Toples: " + jumlah + "\n" +
+            "Total Harga: Rp " + total.toLocaleString("id-ID") +
+            "\n\nTerima kasih telah memesan FILAZ NASTAR ❤️"
+          );
+
+          // reset setelah klik OK
+          document.getElementById("formPemesanan").reset();
+          output.textContent = "";
+
+          return false;
+        }
+      </script>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 FILAZ NASTAR. Semua hak dilindungi.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
